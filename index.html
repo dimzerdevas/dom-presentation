@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      .active {
-        border: 1px solid green;
-      }
-
-      .hidden {
-        visibility: hidden;
-      }
-    </style>
     <title>Learning About DOM</title>
   </head>
-  <script>
-    console.log("here");
-
-    // Does this work?
-    console.log(document.getElementById("groot"));
-  </script>
-
   <body>
     <h1>An element node</h1>
     <!-- a comment node -->
@@ -33,37 +17,47 @@
       <li class="avenger quote" id="captain-america">I can do this all day</li>
     </ul>
 
-    <input type="text" name="quote-search" />
-
     <script>
       const quoteByGroot = document.querySelector(".quotes .guardian");
 
-      // Modifying Attributes
-      quoteByGroot.hasAttribute("id"); // returns boolean
-      quoteByGroot.getAttribute("id"); // returns value of attribute
-      quoteByGroot.removeAttribute("id"); // removes the attribute and value
+      // Traversing Upwards
+      const quotes = quoteByGroot.parentNode;
+      // Result: <ul class="quotes">…</ul>
 
-      quoteByGroot.setAttribute("id", "groot"); // set attribute and value
+      const body = quotes.parentNode;
+      // Result: <body>...</body>
 
-      quoteByGroot.id = "Groot"; // assign value directly
+      const html = body.parentNode;
+      // Result: <html>...</html>
 
-      // Modifying Classes
-      quoteByGroot.className = "guardian"; // overrides existing class value
+      const doc = html.parentNode;
+      // Result: #document
 
-      quoteByGroot.classList.add("hidden"); // add hidden class
-      quoteByGroot.classList.remove("hidden"); // remove hidden class
-      quoteByGroot.classList.toggle("hidden"); // removes/adds class if it does (/not) exist
+      const documentParent = doc.parentElement;
+      // Result: null
 
-      quoteByGroot.classList.replace("hidden", "active"); // replace hidden class with active
+      // Traversing Downwards
+      const quotesChildren = quotes.childNodes;
+      // Result: NodeList(9)
 
-      // Modifying Styles
-      quoteByGroot.setAttribute("style", "text-align: center"); // overrides existing inline styling
+      const firstQuote = quotes.firstChild;
+      // Result: <li class="guardian quote" id="groot">...</li>
+
+      const lastQuote = quotes.lastChild;
+      // Result: <li class="avenger quote" id="captain-america">...</li>
+
+      const secondQuote = quotes.children[1];
+      // Result: <li class="guardian quote" id="rocket">...</li>
+
+
+      // Traversing Sideways
+      const quoteAfterRocket = secondQuote.nextElementSibling;
+      // Result: <li class="guardian quote" id="star-lord">...</li>
+      const quoteBeforeRocket = secondQuote.previousElementSibling;
+      // Result: <li class="guardian quote" id="groot">...</li>
       
-      quoteByGroot.style.height = "100px"; // adds CSS rule to inline attribute
-      quoteByGroot.style.width = "100px";
-      quoteByGroot.style.border = "2px solid green";
-      
 
-    </script>
+
+   </script>
   </body>
 </html>
