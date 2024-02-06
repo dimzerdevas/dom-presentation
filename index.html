@@ -16,7 +16,7 @@
     A text node.
 
     <ul class="quotes">
-      <li class="guardian quote" id="groot">I am groot.</li>
+      <li class="guardian quote" id="groot">I am Groot.</li>
       <li class="guardian quote" id="rocket">
         Ain't no thing like me, 'cept me.
       </li>
@@ -27,30 +27,39 @@
     <input type="text" name="quote-search" />
 
     <script>
+      
+      // Creating New Nodes
+      const quoteByHulk = document.createElement('li')
+      // Result: <li></li>
+      
+      quoteByHulk.textContent = "That's my secret, Cap. I'm always angry."
+      // Result: <li>That's My Secret, Cap. I'm Always Angry.</li>
+      
+      quoteByHulk.innerHTML = "That's my secret, Cap. I'm always <strong>angry</strong>."
+      // Not recommended as it may involve a cross-site scripting (XSS) risk
 
-      const rocket = document.querySelector("#rocket");
-      // Result: <li class="guardian quote" id="rocket">…</li>
-      // Returns the first Element Node that matches the specified selector
 
-      // The selector must be a valid CSS Selector
+      // Inserting Nodes into the DOM
+      const quotes = document.querySelector('.quotes')
+      
+      quotes.appendChild(quoteByHulk);
+      // Result: Element Node added to quotes
 
-      const firstGuardian = document.querySelector(".guardian");
-      // Result: <li class="guardian quote" id="groot">…</li>
-      // This may be a problem with classes...
+      const quoteByCap = document.querySelector("#captain-america");
+      quotes.insertBefore(quoteByHulk, quoteByCap);
+      // Result: quoteByHulk was moved up 
 
-      const quoteSearch = document.querySelector('input[name="quote-search"]');
-      // Result: <input type="text" name="quote-search">
-      // Selectors can be more complex
+      quotes.replaceChild(quoteByHulk, quoteByCap);
+      // Result: cap quote was replaced by hulk quote
 
-      const quotesByGuardians = document.querySelectorAll(".quotes .guardian");
-      // Result: NodeList(3)
-      // Returns a static (not live) NodeList representing
-      // a list of the Element Nodes that match the selector
+      
 
-      const quotesByAvengers = document.querySelectorAll("li.quote:not(.guardian)");
-      // Result: NodeList [li#captain-america.avenger.quote]
-      // As all CSS selector strings are valid, you can also negate selectors
-
+      // Removing Nodes from the DOM
+      quotes.removeChild(quotes.lastElementChild);
+      // Result: Hulk quote disappeared
+      
+      quotes.children[1].remove();
+      // Result: Second quote was removed
 
     </script>
   </body>
