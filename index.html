@@ -8,5 +8,44 @@
     <h1>An element node</h1>
     <!-- a comment node -->
     A text node.
+
+    <ul class="quotes">
+      <li class="guardian quote" id="groot">I am groot.</li>
+      <li class="guardian quote" id="rocket">
+        Ain't no thing like me, 'cept me.
+      </li>
+      <li class="guardian quote" id="star-lord">Dance Off, Bro!</li>
+      <li class="avenger quote" id="captain-america">I can do this all day</li>
+    </ul>
+
+    <input type="text" name="quote-search" />
+
+    <script>
+
+      const rocket = document.querySelector("#rocket");
+      // Result: <li class="guardian quote" id="rocket">…</li>
+      // Returns the first Element Node that matches the specified selector
+
+      // The selector must be a valid CSS Selector
+
+      const firstGuardian = document.querySelector(".guardian");
+      // Result: <li class="guardian quote" id="groot">…</li>
+      // This may be a problem with classes...
+
+      const quoteSearch = document.querySelector('input[name="quote-search"]');
+      // Result: <input type="text" name="quote-search">
+      // Selectors can be more complex
+
+      const quotesByGuardians = document.querySelectorAll(".quotes .guardian");
+      // Result: NodeList(3)
+      // Returns a static (not live) NodeList representing
+      // a list of the Element Nodes that match the selector
+
+      const quotesByAvengers = document.querySelectorAll("li.quote:not(.guardian)");
+      // Result: NodeList [li#captain-america.avenger.quote]
+      // As all CSS selector strings are valid, you can also negate selectors
+
+
+    </script>
   </body>
 </html>
