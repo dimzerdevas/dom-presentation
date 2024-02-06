@@ -1,7 +1,5 @@
 # DOM Examples Repository
 
-!DOM Logo
-
 Welcome to the **DOM Presentation Repository**! This repository contains practical examples demonstrating various aspects of the Document Object Model (DOM). 
 Whether you're a beginner learning about the DOM or an experienced developer looking for specific use cases, you'll find valuable insights here.
 
