@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="WelcomeMessage.js" type="text/javascript" defer></script>
     <title>Learning About DOM</title>
   </head>
   <body>
@@ -16,6 +17,7 @@
       <li class="guardian quote" id="star-lord">Dance Off, Bro!</li>
       <li class="avenger quote" id="captain-america">I can do this all day</li>
     </ul>
+    <welcome-message></welcome-message>
 
     <script>
       const quoteByGroot = document.querySelector(".quotes .guardian");
@@ -49,15 +51,11 @@
       const secondQuote = quotes.children[1];
       // Result: <li class="guardian quote" id="rocket">...</li>
 
-
       // Traversing Sideways
       const quoteAfterRocket = secondQuote.nextElementSibling;
       // Result: <li class="guardian quote" id="star-lord">...</li>
       const quoteBeforeRocket = secondQuote.previousElementSibling;
       // Result: <li class="guardian quote" id="groot">...</li>
-      
-
-
-   </script>
+    </script>
   </body>
 </html>
