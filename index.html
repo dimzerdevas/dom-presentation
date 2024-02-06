@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Learning About Nodes</title>
+    <title>Learning About DOM</title>
   </head>
+  <script>
+    console.log("here");
+    
+    // Does this work?
+    console.log(document.getElementById("groot"));
+  </script>
 
   <body>
     <h1>An element node</h1>
     <!-- a comment node -->
     A text node.
+
+    <ul class="quotes">
+      <li class="guardian quote" id="groot">I am groot.</li>
+      <li class="guardian quote" id="rocket">
+        Ain't no thing like me, 'cept me.
+      </li>
+      <li class="guardian quote" id="star-lord">Dance Off, Bro!</li>
+      <li class="avenger quote" id="captain-america">I can do this all day</li>
+    </ul>
+
+    <input type="text" name="quote-search" />
+
+    <script>
+
+      const groot = document.getElementById("groot");
+      // Result: >li#groot.guardian
+      // Returns an Element node representing
+      // the element with the matching ID
+
+      const quotesByGuardians = document.getElementsByClassName("quote guardian");
+      // Result: >HTMLCollection(3)
+      // Returns an array-like object, called HTML Collection,
+      // of all elements which have all of the given class name(s) 
+
+      const quoteSearch = document.getElementsByName('quote-search');
+      // Result: >NodeList[input]
+      // Returns a NodeList of all elements with a given name
+
+      const quotesListItems = document.getElementsByTagName('li');
+      // Result: >HTMLCollection(4)
+      // Returns an HTML Collection of elements 
+      // with the given tag name
+
+    
+    </script>
   </body>
 </html>
