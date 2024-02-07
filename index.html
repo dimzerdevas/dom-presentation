@@ -18,44 +18,5 @@
       <li class="avenger quote" id="captain-america">I can do this all day</li>
     </ul>
     <welcome-message></welcome-message>
-
-    <script>
-      const quoteByGroot = document.querySelector(".quotes .guardian");
-
-      // Traversing Upwards
-      const quotes = quoteByGroot.parentNode;
-      // Result: <ul class="quotes">…</ul>
-
-      const body = quotes.parentNode;
-      // Result: <body>...</body>
-
-      const html = body.parentNode;
-      // Result: <html>...</html>
-
-      const doc = html.parentNode;
-      // Result: #document
-
-      const documentParent = doc.parentElement;
-      // Result: null
-
-      // Traversing Downwards
-      const quotesChildren = quotes.childNodes;
-      // Result: NodeList(9)
-
-      const firstQuote = quotes.firstChild;
-      // Result: <li class="guardian quote" id="groot">...</li>
-
-      const lastQuote = quotes.lastChild;
-      // Result: <li class="avenger quote" id="captain-america">...</li>
-
-      const secondQuote = quotes.children[1];
-      // Result: <li class="guardian quote" id="rocket">...</li>
-
-      // Traversing Sideways
-      const quoteAfterRocket = secondQuote.nextElementSibling;
-      // Result: <li class="guardian quote" id="star-lord">...</li>
-      const quoteBeforeRocket = secondQuote.previousElementSibling;
-      // Result: <li class="guardian quote" id="groot">...</li>
-    </script>
   </body>
 </html>
