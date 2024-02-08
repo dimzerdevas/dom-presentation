@@ -5,11 +5,6 @@
   </head>
   <script>
     console.log("here");
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> display the differences between get selectors
     // Does this work?
     console.log(document.getElementById("groot"));
   </script>
@@ -32,26 +27,30 @@
 
     <script>
 
-      const groot = document.getElementById("groot");
-      // Result: >li#groot.guardian
-      // Returns an Element node representing
-      // the element with the matching ID
+      const rocket = document.querySelector("#rocket");
+      // Result: <li class="guardian quote" id="rocket">…</li>
+      // Returns the first Element Node that matches the specified selector
 
-      const quotesByGuardians = document.getElementsByClassName("quote guardian");
-      // Result: >HTMLCollection(3)
-      // Returns an array-like object, called HTML Collection,
-      // of all elements which have all of the given class name(s) 
+      // The selector must be a valid CSS Selector
 
-      const quoteSearch = document.getElementsByName('quote-search');
-      // Result: >NodeList[input]
-      // Returns a NodeList of all elements with a given name
+      const firstGuardian = document.querySelector(".guardian");
+      // Result: <li class="guardian quote" id="groot">…</li>
+      // This may be a problem with classes...
 
-      const quotesListItems = document.getElementsByTagName('li');
-      // Result: >HTMLCollection(4)
-      // Returns an HTML Collection of elements 
-      // with the given tag name
+      const quoteSearch = document.querySelector('input[name="quote-search"]');
+      // Result: <input type="text" name="quote-search">
+      // Selectors can be more complex
 
-    
+      const quotesByGuardians = document.querySelectorAll(".quotes .guardian");
+      // Result: NodeList(3)
+      // Returns a static (not live) NodeList representing
+      // a list of the Element Nodes that match the selector
+
+      const quotesByAvengers = document.querySelectorAll("li.quote:not(.guardian)");
+      // Result: NodeList [li#captain-america.avenger.quote]
+      // As all CSS selector strings are valid, you can also negate selectors
+
+
     </script>
   </body>
 </html>
