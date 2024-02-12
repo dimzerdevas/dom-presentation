@@ -1,14 +1,3 @@
-const welcomeMessage = document.createElement("template");
-
-welcomeMessage.innerHTML = `
-<style>
-    p {
-        color: red;
-    }
-</style>
-<p>Welcome Shadow Dom!</p>
-`;
-
 class WelcomeMessage extends HTMLElement {
   constructor() {
     super();
@@ -16,7 +5,8 @@ class WelcomeMessage extends HTMLElement {
 
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "closed" });
-    shadowRoot.appendChild(welcomeMessage.content);
+    shadowRoot.innerHTML = `
+    <div>Hello from the Shadow DOM!</div>`;
   }
 }
 
